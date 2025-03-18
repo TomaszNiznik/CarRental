@@ -3,3 +3,10 @@ from django.shortcuts import render, HttpResponse
 
 def index(request):
     return HttpResponse("List of Cars")
+
+
+def car (request, car_id):
+    return HttpResponse("Description of singke car")
+
+def category (request, category_name):
+    return HttpResponse("List of cars from single category")
