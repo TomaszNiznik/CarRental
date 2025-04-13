@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ car.brand }} {{ car.model }} - Szczegóły</title>
+</head>
+<body>
+    <h1>{{ car.brand }} {{ car.model }}</h1>
+    <p>Typ silnika: {{ car.engine_type }}</p>
+    <p>Typ skrzyni biegów: {{ car.gearbox_type }}</p>
+    <p>Poziom mocy: {{ car.engine_power }} KM</p>
+    <p>Przebieg: {{ car.mileage_limit }} km</p>
+    <p>Wartość: {{ car.value }} PLN</p>
+    <img src="{{ car.image.url }}" alt="{{ car.brand }} {{ car.model }}">
+    <p><a href="{% url 'cars:category' car.category %}">Powrót do kategorii</a></p>
+</body>
+</html>
+
+
+
+
+
+

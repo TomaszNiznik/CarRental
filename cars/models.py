@@ -8,7 +8,7 @@ class Equipment(models.Model):
 
 class Car(models.Model):
     ENGINE_TYPES = [
-        ("bezyna", "Bęzynowy"),
+        ("bezyna", "Benzynowy"),
         ("diesel", "Diesel"),
         ("elektryk", "Elektryczny"),
         ("hybryda", "Hybrydowy")
@@ -18,23 +18,23 @@ class Car(models.Model):
         ("automat", "automatyczna")
     ]
     BODY_TYPES = [
-        ("hatchback", "hatchback"),
-        ("sedan", "sedan"),
-        ("combi", "combi"),
+        ("hatchback", "Hatchback"),
+        ("sedan", "Sedan"),
+        ("combi", "Combi"),
         ("suv", "SUV"),
     ]
     CAR_CLASSES = [
-        ("a", "małe i mini"),
-        ("b", "miejskie"),
-        ("c", "kompaktowe"),
-        ("d", "rodzinne"),
-        ("e", "limuzyny"),
-        ("f", "luksusowe"),
-        ("g", "sportowe"),
-        ("h", "kabriolety"),
-        ("i", "terenowe"),
-        ("m", "van"),
-    ]
+    ("a", "małe i mini"),
+    ("b", "miejskie"),
+    ("c", "kompaktowe"),
+    ("d", "rodzinne"),
+    ("e", "limuzyny"),
+    ("f", "luksusowe"),
+    ("g", "sportowe"),
+    ("h", "kabriolety"),
+    ("i", "terenowe"),
+    ("m", "van"),
+]
     brand = models.CharField(max_length=50)
     model = models.CharField(max_length=50)
     engine_type = models.CharField(max_length=50, choices=ENGINE_TYPES)
@@ -46,7 +46,7 @@ class Car(models.Model):
     trunk_capacity = models.PositiveSmallIntegerField()
     color = models.CharField(max_length=50)
     body_type = models.CharField(max_length=50, choices=BODY_TYPES)
-    category = models.CharField(max_length=50, choices=CAR_CLASSES)
+    category = models.CharField(max_length=50, choices=CAR_CLASSES)  # Dodanie choices do kategorii
     fuel_usage = models.DecimalField(max_digits=10, decimal_places=2)
     price = models.DecimalField(max_digits=10, decimal_places=2)
     mileage_limit = models.PositiveIntegerField()
@@ -54,7 +54,7 @@ class Car(models.Model):
     availability = models.BooleanField()
     insurance_expiry_date = models.DateField()
     equipment = models.ManyToManyField(Equipment)
-    image = models.ImageField()
+    image = models.ImageField(upload_to="images")
 
     def __str__(self) -> str:
-        return self.brand + " " + self.model
+        return f"{self.brand} {self.model}"

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Kategorie samochodów</title>
+</head>
+<body>
+    {% if category_id %}
+        <h1>Samochody w kategorii: {{ category_id }}</h1>
+        <ul>
+            {% for car in cars %}
+                <li>
+                    {{ car.brand }} {{ car.model }} 
+                    <a href="{% url 'cars:car' car.id %}">Szczegóły</a>
+                </li>
+            {% endfor %}
+        </ul>
+        <a href="{% url 'cars:category_list' %}">Wróć do listy kategorii</a>
+    {% else %}
+        <h1>Wybierz kategorię samochodu</h1>
+        <ul>
+            {% for category in categories %}
+                <li>
+                    <a href="{% url 'cars:category' category.0 %}">{{ category.1 }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>
+
+
+

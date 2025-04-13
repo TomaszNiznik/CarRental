@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Car Rental{% endblock %}</title>
+</head>
+<body>
+    <header>
+        {% if request.path == '/' %}
+            <!-- Pokaż tylko na stronie głównej -->
+            <h1><a href="{% url 'cars:index' %}">Car Rental</a></h1>
+            <nav>
+                <a href="{% url 'cars:index' %}">Strona główna</a>
+                <a href="{% url 'cars:category' 'a' %}">Kategorie</a>
+            </nav>
+        {% endif %}
+    </header>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+</body>
+</html>
+
