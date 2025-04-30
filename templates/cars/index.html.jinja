@@ -1,13 +1,27 @@
-<!DOCTYPE html>
-<html lang="pl">
-<head>
-    <meta charset="UTF-8">
-    <title>Welcome to Car Rental</title>
-</head>
-<body>
-    <h1>Welcome to Car Rental</h1>
-    <p>Wybierz kategorię samochodu.</p>
-    <a href="{% url 'cars:category_list' %}">Zobacz kategorie</a>
-</body>
-</html>
+{% extends 'base.html.jinja' %}
+
+{% block title %}Strona główna{% endblock %}
+
+{% block content %}
+    <section class="welcome">
+        <h2>Witamy w Car Rental!</h2>
+        <p>Znajdź idealny samochód dla siebie.</p>
+        <a href="{% url 'cars:category_list' %}" class="button">Przeglądaj kategorie</a>
+    </section>
+
+    <section class="popular">
+        <h3>Najpopularniejsze samochody</h3>
+        <ul class="car-list">
+            {% for car in cars %}
+                <li class="car-card">
+                    <h4>{{ car.brand }} {{ car.model }}</h4>
+                    <img src="{{ car.image.url }}" alt="{{ car.brand }} {{ car.model }}">
+                    <p>{{ car.price }} zł / dzień</p>
+                    <a href="{% url 'cars:car' car.id %}" class="button">Szczegóły</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </section>
+{% endblock %}
+
 

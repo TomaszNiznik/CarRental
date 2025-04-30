@@ -6,7 +6,7 @@
 </head>
 <body>
     {% if category_id %}
-        <h1>Samochody w kategorii: {{ category_id }}</h1>
+        <h1>Samochody w kategorii: {{ category_name }}</h1>  <!-- Zamiast category_id użyj category_name -->
         <ul>
             {% for car in cars %}
                 <li>
@@ -28,6 +28,4 @@
     {% endif %}
 </body>
 </html>
-
-
 

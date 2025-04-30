@@ -1,0 +1,147 @@
+/* Reset i podstawy */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body, html {
+    height: 100%;
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+/* Layout przyklejonej stopki */
+.layout {
+    display: grid;
+    grid-template-rows: auto 1fr auto;  /* Główna treść i stopka zawsze na dole */
+    min-height: 100vh;
+}
+
+/* Nagłówek */
+header {
+    background-color: #1e1e1e;
+    color: white;
+    padding: 1.5rem 2rem;
+    text-align: center;
+}
+
+header h1 {
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+/* Nawigacja */
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 2rem; /* Przerwy między przyciskami */
+}
+
+nav li {
+    display: inline;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: color 0.3s, background-color 0.3s;
+}
+
+nav a:hover {
+    color: #00bcd4;
+    background-color: #333;
+}
+
+/* Główna treść */
+main {
+    padding: 2rem;
+}
+
+/* Przegląd kategorii */
+.category-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.category-list li {
+    list-style: none;
+    background-color: #fff;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.category-list a {
+    color: #1e88e5;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-decoration: none;
+    display: block;
+    margin-top: 1rem;
+}
+
+.category-list a:hover {
+    color: #00bcd4;
+}
+
+/* Przyciski */
+.button {
+    background-color: #1e88e5;
+    color: white;
+    padding: 0.7rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+    display: inline-block;
+    margin-top: 1rem;
+}
+
+.button:hover {
+    background-color: #1565c0;
+}
+
+/* Stopka */
+footer {
+    background-color: #1e1e1e;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.9rem;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Linki */
+a {
+    color: #1e88e5;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Responsywność */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;  /* Układ pionowy na mniejszych ekranach */
+    }
+
+    .category-list {
+        grid-template-columns: 1fr; /* Kategoria zajmuje całą szerokość na małych ekranach */
+    }
+}
+
+
