@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'cars',
+    'users',
 ]
 
 MIDDLEWARE = [
@@ -137,3 +138,16 @@ STATICFILES_DIRS = [
 
 # W przypadku produkcji, zbieranie statycznych plików
 STATIC_ROOT = BASE_DIR / "staticfiles"
+
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
+
+LOGIN_URL = 'cars:login'
+LOGIN_REDIRECT_URL = 'cars:index'
+LOGOUT_REDIRECT_URL = 'cars:index'
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
+
+AUTH_USER_MODEL = 'users.CustomUser'

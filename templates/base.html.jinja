@@ -1,4 +1,4 @@
-{% load static %}  <!-- Dodaj to na początku pliku! -->
+{% load static %}
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -15,18 +15,28 @@
                 <ul>
                     <li><a href="{% url 'cars:index' %}">Strona główna</a></li>
                     <li><a href="{% url 'cars:category_list' %}">Kategorie</a></li>
-                    {% if request.user.is_authenticated %}
-                        <!-- Możesz dodać inne opcje dla zalogowanych użytkowników tutaj -->
-                    {% else %}
-                        <li><a href="{% url 'users:login' %}">Zaloguj się</a></li>
-                    {% endif %}
+                    <li><a href="{% url 'cars:car' 0 %}">Samochody</a></li>
                 </ul>
             </nav>
+            <div class="user-menu">
+                {% if request.user.is_authenticated %}
+                    <ul>
+                        <li><a href="{% url 'cars:orders' %}">Moje zamówienia</a></li>
+                        <li><a href="{% url 'users:logout' %}">Wyloguj się</a></li>
+                    </ul>
+                {% else %}
+                    <ul>
+                        <li><a href="{% url 'users:login' %}">Zaloguj się</a></li>
+                        <li><a href="{% url 'users:register' %}">Załóż konto</a></li>
+                    </ul>
+                {% endif %}
+            </div>
         </header>
+
         <main>
-            {% block content %}
-            {% endblock %}
+            {% block content %}{% endblock %}
         </main>
+
         <footer>
             <p>&copy; 2025 CarRental.pl</p>
         </footer>

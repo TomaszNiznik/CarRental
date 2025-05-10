@@ -10,6 +10,7 @@ urlpatterns = [
     path('category/<str:category_id>/', views.category, name='category'),  # Szczegóły danej kategorii
     path('<int:car_id>/', views.car, name='car'),  # Szczegóły samochodu
     path('rent/<int:car_id>/', views.rent, name='rent'),  # Wynajem samochodu
+
 ]
 
 
